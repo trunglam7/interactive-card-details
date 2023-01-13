@@ -1,0 +1,300 @@
+$primary-lin-grad: linear-gradient(45deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+$primary-red: hsl(0, 100%, 66%);
+
+$neutral-violet-0: hsl(270, 3%, 87%);
+$neutral-violet-1: hsl(279, 6%, 55%);
+$neutral-violet-2: hsl(278, 68%, 11%);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body{
+    font-size: 18px;
+}
+
+main{
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 9%;
+    padding: 25px;
+}
+
+main::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(33.5%);
+    background-image: url('./images/bg-main-desktop.png');
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+form{
+    text-transform: uppercase;
+    display: grid;
+    max-width: 380px;
+    gap: 20px;
+
+    label, legend{
+        color: $neutral-violet-2;
+        font-size: .65em;
+        letter-spacing: 1px;
+    }
+
+
+    input{
+        width: 100%;
+        border-style: solid;
+        border-width: 1px;
+        border-color: $neutral-violet-0;
+        padding: 10px 15px;
+        font-size: 1em;
+        border-radius: 7px;
+        margin-top: 7px;
+    }
+
+    input::placeholder{
+        color: $neutral-violet-0;
+    }
+
+    input:focus{
+       outline: none;
+       background: linear-gradient(white, white) padding-box, $primary-lin-grad border-box;
+       border: 1.5px solid transparent;
+    }
+
+    fieldset{
+        border-style: none;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+
+        legend{
+            margin-bottom: 2px;
+        }
+
+        input{
+            max-width: 107px;
+            padding: 10px;
+        }
+
+        .fieldset{
+            display: flex;
+            column-gap: 10px;
+        }
+
+    }
+
+    button{
+        background-color: $neutral-violet-2;
+        color: white;
+        border-style: none;
+        padding: 15px;
+        font-size: 1em;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .input-bottom{
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+
+        .input-container{
+            max-width: 192px;
+        }
+    }
+
+}
+
+.error-input{
+    border: 1.5px solid $primary-red;
+}
+
+.error-message{
+    color: $primary-red;
+    text-transform: initial;
+    font-size: .7em;
+    margin-top: 10px;
+    display: none;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    justify-content: center;
+    align-items: center;
+    row-gap: 37px;
+
+    .front-card, .back-card{
+        box-shadow: 0px 20px 30px 10px hsla(278, 68%, 11%, 0.1);
+        border-radius: 10px;
+    }
+
+    .front-card{
+        background-image: url('./images/bg-card-front.png');
+        background-position: center;
+        background-size: cover;
+        height: 245px;
+        width: 445px;
+        color: white;
+        text-transform: uppercase;
+        padding: 27px 35px;
+        border-radius: 7px;
+        align-self: flex-start;
+
+        .bottom-section{
+            display: flex;
+            justify-content: space-between;
+            font-size: .75em;
+            letter-spacing: 2px;
+            margin-top: 27px;
+        }
+    }
+
+    .front-card > p{
+        font-size: 1.5em;
+        letter-spacing: 3px;
+        word-spacing: 3px;
+        margin-top: 62px;
+    }
+
+    .back-card{
+        background-image: url('./images/bg-card-back.png');
+        background-position: center;
+        background-size: cover;
+        height: 245px;
+        width: 445px;
+        position: relative;
+        align-self: flex-end;
+
+        p{
+            font-size: .75em;
+            color: white;
+            position: absolute;
+            top: 46%;
+            left: 80%;
+            letter-spacing: 2px;
+        }
+    }
+}
+
+.complete-form{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 27.5%;
+
+    button{
+        width: min(100%, 383px);
+        background-color: $neutral-violet-2;
+        color: white;
+        border-style: none;
+        padding: 15px;
+        font-size: 1em;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+}
+
+.complete-form > p:first-of-type{
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 3px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.complete-form > p:last-of-type{
+    color: $neutral-violet-1;
+    margin-bottom: 50px;
+    font-size: .8em;
+}
+
+@media screen and (max-width: 872px) {
+    main{
+        flex-direction: column;
+        row-gap: 135px;
+        padding: 0px 20px;
+    }
+
+    main::before{
+        bottom: auto;
+        right: 0;
+        background-image: url('./images/bg-main-mobile.png');
+        height: 245px;
+        width: 100%;
+    }
+
+    .card-container{
+        width: 100%;
+        row-gap: 0px;
+        position: relative;
+
+        .front-card, .back-card{
+            width: 290px;
+            height: 160px;
+            padding: 20px;
+        }
+
+        .front-card{
+            position: absolute;
+            top: 90px;
+            z-index: 1;
+            img{
+                width: 50px;
+            }
+
+            .bottom-section{
+                margin-top: 25px;
+                font-size: .5em;
+            }
+        }
+
+        .front-card > p{
+            font-size: .9em;
+            margin-top: 30px;
+            word-spacing: 0px;
+        }
+
+        .back-card{
+            p{
+                font-size: .5em;
+                top: 45%;
+            }
+        }
+
+    }
+
+    .complete-form{
+        width: 100%; 
+    }
+
+    .complete-form > p:last-of-type{
+        font-size: 1em;
+    }
+
+    form{
+        input{
+            padding: 10px 10px;
+        }
+
+        fieldset{
+            input{
+                padding-left: 5px;
+            }
+        }
+    }
+
+}
